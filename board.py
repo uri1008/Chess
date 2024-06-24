@@ -42,5 +42,4 @@ class Board:
                     current_piece_color = PieceColor.White if row == 6 else PieceColor.Black
                     board[Board.get_board_location(row=row, square=square)] = Pawn(piece_color=current_piece_color,
                                                                                    row=row, square=square)
-        print(board)
         return board
