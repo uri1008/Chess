@@ -24,22 +24,22 @@ class Board:
                     if square == 0 or square == 7:
                         board[Board.get_board_location(row=row, square=square)] = Rock(
                             piece_color=current_piece_color,
-                            row=row, square=square)
+                            row=row, square=square, piece=Rock)
                     elif square == 1 or square == 6:
                         board[Board.get_board_location(row=row, square=square)] = Knight(
-                            piece_color=current_piece_color, row=row, square=square)
+                            piece_color=current_piece_color, row=row, square=square, piece=Knight)
                     elif square == 2 or square == 5:
                         board[Board.get_board_location(row=row, square=square)] = Bishop(
-                            piece_color=current_piece_color, row=row, square=square)
+                            piece_color=current_piece_color, row=row, square=square, piece=Bishop)
                     elif square == 3:
                         board[Board.get_board_location(row=row, square=square)] = Queen(
-                            piece_color=current_piece_color, row=row, square=square)
+                            piece_color=current_piece_color, row=row, square=square, piece=Queen)
                     elif square == 4:
                         board[Board.get_board_location(row=row, square=square)] = King(
-                            piece_color=current_piece_color, row=row, square=square)
+                            piece_color=current_piece_color, row=row, square=square, piece=King)
 
                 elif row == 1 or row == 6:
                     current_piece_color = PieceColor.White if row == 6 else PieceColor.Black
                     board[Board.get_board_location(row=row, square=square)] = Pawn(piece_color=current_piece_color,
-                                                                                   row=row, square=square)
+                                                                                   row=row, square=square, piece=Pawn)
         return board

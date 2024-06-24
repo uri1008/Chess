@@ -21,11 +21,11 @@ class PieceColor(enum.Enum):
 class Square:
     row: int
     square: int
+    piece: enum = PieceType.empty_square
 
 
 @dataclass
 class EmptySquare(Square):
-    piece: enum = PieceType.empty_square
 
     def __repr__(self):
         return f"piece={self.piece}, row={self.row}, square={self.square}"
@@ -34,70 +34,45 @@ class EmptySquare(Square):
 @dataclass
 class Pawn(Square):
     piece_color: enum
-    piece: enum = PieceType.pawn
 
     def check_for_moves(self) -> list[int]:
         pass
-
-    def __repr__(self):
-        return f"piece={self.piece}, piece color={self.piece_color},row={self.row}, square={self.square}"
 
 
 @dataclass
 class Rock(Square):
     piece_color: enum
-    piece: enum = PieceType.rock
 
     def check_for_moves(self) -> list[int]:
         pass
-
-    def __repr__(self):
-        return f"piece={self.piece}, piece color={self.piece_color},row={self.row}, square={self.square}"
 
 
 @dataclass
 class Knight(Square):
     piece_color: enum
-    piece: enum = PieceType.knight
 
     def check_for_moves(self) -> list[int]:
         pass
-
-    def __repr__(self):
-        return f"piece={self.piece}, piece color={self.piece_color},row={self.row}, square={self.square}"
 
 
 @dataclass
 class Bishop(Square):
     piece_color: enum
-    piece: enum = PieceType.bishop
 
     def check_for_moves(self) -> list[int]:
         pass
-
-    def __repr__(self):
-        return f"piece={self.piece}, piece color={self.piece_color},row={self.row}, square={self.square}"
 
 
 @dataclass
 class Queen(Square):
     piece_color: enum
-    piece: enum = PieceType.queen
 
     def check_for_moves(self) -> list[int]:
         pass
-
-    def __repr__(self):
-        return f"piece={self.piece}, piece color={self.piece_color},row={self.row}, square={self.square}"
-
 
 @dataclass
 class King(Square):
     piece_color: enum
-    piece: enum = PieceType.king
 
     def check_for_moves(self) -> list[int]:
         pass
-
-    def __repr__(self):
-        return f"piece={self.piece}, piece color={self.piece_color},row={self.row}, square={self.square}"
