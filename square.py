@@ -21,14 +21,14 @@ class PieceColor(enum.Enum):
 class Square:
     row: int
     square: int
-    piece: enum = PieceType.empty_square
+    piece: enum = None
 
 
 @dataclass
 class EmptySquare(Square):
 
-    def __repr__(self):
-        return f"piece={self.piece}, row={self.row}, square={self.square}"
+    def __post_init__(self):
+        self.piece = PieceType.empty_square
 
 
 @dataclass
@@ -38,6 +38,9 @@ class Pawn(Square):
     def check_for_moves(self) -> list[int]:
         pass
 
+    def __post_init__(self):
+        self.piece = PieceType.pawn
+
 
 @dataclass
 class Rock(Square):
@@ -45,6 +48,9 @@ class Rock(Square):
 
     def check_for_moves(self) -> list[int]:
         pass
+
+    def __post_init__(self):
+        self.piece = PieceType.rock
 
 
 @dataclass
@@ -54,6 +60,9 @@ class Knight(Square):
     def check_for_moves(self) -> list[int]:
         pass
 
+    def __post_init__(self):
+        self.piece = PieceType.knight
+
 
 @dataclass
 class Bishop(Square):
@@ -62,6 +71,9 @@ class Bishop(Square):
     def check_for_moves(self) -> list[int]:
         pass
 
+    def __post_init__(self):
+        self.piece = PieceType.bishop
+
 
 @dataclass
 class Queen(Square):
@@ -69,6 +81,10 @@ class Queen(Square):
 
     def check_for_moves(self) -> list[int]:
         pass
+
+    def __post_init__(self):
+        self.piece = PieceType.queen
+
 
 @dataclass
 class King(Square):
